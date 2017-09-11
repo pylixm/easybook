@@ -1,0 +1,21 @@
+$prefixes: -webkit-, -moz-, -ms-, -o-, "";
+
+$at: "@";
+$keyframe: " keyframes";
+$blank: ' ';
+@mixin prefix($name, $argument) {
+    @each $pre in $prefixes {
+        #{$pre}#{$name}:$argument;
+    }
+}
+@mixin keyframes($name, $frames) {
+    @each $pre in $prefixes {
+        #{$at}#{$pre}#{$keyframe}#{$blank}#{$name}: $frames;
+    }
+}
+@mixin animation($attr) {
+    @include prefix(animation, $attr);
+}
+@mixin transform($attr) {
+    @include prefix(transform, $attr);
+}

@@ -1,0 +1,40 @@
+a:link,
+a:visited {
+    color: #666666;
+    text-decoration: none; 
+}
+a:hover {
+    
+    text-decoration: none;
+}
+:root {
+    overflow-x: hidden;
+    overflow-y: auto; 
+}
+html, body {
+    width: 100%;
+    height: 100%;
+}
+body {
+    font-family: "Source Han Sans SC",-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+}
+
+.pdl-20 {
+    padding-left: 20px;
+}
+.mgb-20 {
+    margin-bottom: 20px;
+}
+h1 {
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1.65;
+}
+h3 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+ul li {
+    line-height: 1.25;
+}
