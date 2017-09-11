@@ -30,8 +30,12 @@ export function isEmptyObject(obj) {
  * 
  * @returns {Number} document hiding height
  */
-export function getScrollTop() {
-    return document.documentElement.scrollTop || document.body.scrollTop;
+export function pageProp() {
+    return {
+        top: document.body.scrollTop || document.documentElement.scrollTop,
+        width: document.body.scrollWidth || document.documentElement.scrollTop,
+        height: document.body.scrollHeight || document.documentElement.scrollHeight,
+    }
 }
 /**
  * 
