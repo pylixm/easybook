@@ -1,23 +1,22 @@
 <template>
   <div class="back" @click="Back">
-    <div class="fr"><i class="czs-angle-left-l"></i>返回</div>
+    <div class="fl"><i class="czs-angle-left-l"></i>返回</div>
     <span class="common-title">{{ title }}</span>
   </div>
 </template>
 <script>
-import * as types from '../store/types';
+import * as types from '@/store/types';
 export default {
+    // 接受父组件的数据，实现通信
     props: ['title'],
     data() {
         return {
 
         }
     },
-    
     methods: {
         Back() {
             this.$router.go(-1);
-            
         }
     }
     
@@ -32,11 +31,12 @@ export default {
         padding-left: 10px;
         text-align: center;
         cursor: pointer;
-        .fr {
+        .fl {
             float: left;
         }
         .common-title {
             font-size: 25px;
+            // 文本过长显示省略号
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
