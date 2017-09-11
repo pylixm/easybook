@@ -2,7 +2,7 @@
     <div class="back-top" @click="top"></div>
 </template>
 <script>
-import { getClientHeight, getScrollTop, setScrollTop } from '@/libs/utils';
+import { getClientHeight, pageProp, setScrollTop } from '@/libs/utils';
 export default {
     data() {
         return {
@@ -21,12 +21,12 @@ export default {
         // 获取可视区域高度
         const cHeight = getClientHeight();
         // 无卷曲高度时，按钮不显示
-        if (getScrollTop() === 0) {
+        if (pageProp().top === 0) {
             topBtn.style.display = 'none';
         }
         // 监听window的滚动事件,因为考虑回到顶部过程中按钮想停下来的情况
         window.addEventListener('scroll', function(){
-            const sTop = getScrollTop();
+            const sTop = pageProp().top;
             // 如果卷曲高度大于页面可视窗口高度时按钮显示，否则不显示
             topBtn.style.display = sTop > cHeight ? 'block' : 'none';
             // 页面如果到达顶部，清除定时器
@@ -42,7 +42,7 @@ export default {
             let that = this;
             // 设置定时器
             that.timer = setInterval(() => {
-                let top = getScrollTop();
+                let top = pageProp().top;
                 // 设置定时器每次运行减少的距离
                 let distance = Math.floor(-top / 6);
                 // 设置页面卷曲高度
