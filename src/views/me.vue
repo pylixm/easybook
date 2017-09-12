@@ -15,7 +15,6 @@
             </router-link>
         </div>
         <div class="shadow-box">
-            <router-link :to="{ path: '/resume' }"><div class="item"><i class="czs-message-l"></i>我的简历</div><i class="czs-angle-right-l"></i></router-link>
             <router-link :to="{ path: '/news' }"><div class="item"><i class="czs-message-l"></i>最新演讲</div><i class="czs-angle-right-l"></i></router-link>
             <router-link :to="{ path: '*' }"><div class="item"><i class="czs-message-l"></i>待开发...</div><i class="czs-angle-right-l"></i></router-link>
         </div>
