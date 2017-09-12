@@ -15,15 +15,17 @@ export default {
         }
     },
     beforeRouteLeave(to, from, next) {
+        // 路由进入之前清除定时器
         this.clear();
         next();
     },
     created() {
         this.time = 5;
-        console.log('设置time为5');
+        // console.log('设置time为5');
         this.updateTime(this.time);
     },
     methods: {
+        // 更新时间
         updateTime(count) {
             this.time = count;
             console.log(count);
@@ -37,6 +39,7 @@ export default {
                 }, 1000);
             }
         },
+        // 清楚所有定时器
         clear() {
             let bigSetTimeOutId = window.setTimeout(function() {}, 1);
             for (let i = 1; i < bigSetTimeOutId; i++) {
