@@ -2,33 +2,28 @@
     <div>
         <back :title="navTitle" />
         <back-to-top />
-        <!-- v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10" -->
-        <!-- <div class="a" v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10"> -->
-            <!-- <keep-alive> -->
-                <section>
-                    <ul>
-                        <li @mouseover="mouse($event)" @mouseout="none($event)" v-for="item in datum" :key="item.id">
-                            <img :src="item.background" alt="">
-                            <a href="javascript:;" class="mask" v-if="item.id">
-                                <span class="title">{{ item.title }}</span>
-                                <div class="num" v-for="num in item.lectures"  :key="num.id">
-                                    <span class="icon eye"><i class="czs-eye-l"></i>{{ num.viewnum }}</span>
-                                    <span class="icon heart"><i class="czs-heart-l"></i>{{ num.likenum }}</span>
-                                </div> 
-                                <!-- <div class="num" v-if="item.lectures[0].viewnum">
-                                    <span class="icon eye" ><i class="czs-eye-l"></i>{{ item.lectures[0].viewnum }}</span>
-                                    <span class="icon heart"><i class="czs-heart-l"></i>{{ item.lectures[0].likenum }}</span>
-                                </div> -->
-                            </a>
-                        </li>
-                        <div class="full-line"></div>
-                        <infinite-loading spinner="bubbles" :on-infinite="onInfinite" ref="infiniteLoading">
-                            <span slot="no-more">没有更多数据了哦</span>    
-                        </infinite-loading>
-                    </ul>
-                </section>
-            <!-- </keep-alive> -->
-        <!-- </div> -->
+            <section>
+                <ul>
+                    <li @mouseover="mouse($event)" @mouseout="none($event)" v-for="item in datum" :key="item.id">
+                        <img :src="item.background" alt="">
+                        <a href="javascript:;" class="mask" v-if="item.id">
+                            <span class="title">{{ item.title }}</span>
+                            <div class="num" v-for="num in item.lectures"  :key="num.id">
+                                <span class="icon eye"><i class="czs-eye-l"></i>{{ num.viewnum }}</span>
+                                <span class="icon heart"><i class="czs-heart-l"></i>{{ num.likenum }}</span>
+                            </div> 
+                            <!-- <div class="num" v-if="item.lectures[0].viewnum">
+                                <span class="icon eye" ><i class="czs-eye-l"></i>{{ item.lectures[0].viewnum }}</span>
+                                <span class="icon heart"><i class="czs-heart-l"></i>{{ item.lectures[0].likenum }}</span>
+                            </div> -->
+                        </a>
+                    </li>
+                    <div class="full-line"></div>
+                    <infinite-loading spinner="bubbles" :on-infinite="onInfinite" ref="infiniteLoading">
+                        <span slot="no-more">没有更多数据了哦</span>    
+                    </infinite-loading>
+                </ul>
+            </section>
     </div>
 </template>
 <script>
@@ -37,7 +32,6 @@ import backToTop from '@/components/backToTop.vue';
 import spinner from '@/components/spinner.vue';
 import { mapState, mapMutations } from 'vuex';
 import { SET_TOPTITLE, CLEAR_TOPTITLE } from '@/store/types';
-import infiniteScroll from 'vue-infinite-scroll';
 import { fetchYiData } from '@/api/index';
 import InfiniteLoading from 'vue-infinite-loading';
 export default {
@@ -46,12 +40,8 @@ export default {
             datum: [],
         }
     },
-    directives: {infiniteScroll},
     created() {
         this.$store.commit(SET_TOPTITLE, '最新演讲');
-        // if (!this.busy) {
-        //     this.getData();
-        // }
         this.loadFirst();
     },
     mounted() {
@@ -78,19 +68,22 @@ export default {
                 // console.log('获取的演讲数据为:');
                 // console.log(JSON.stringify(res.data)); 
                 let store = res.data;
-                
                 const temp = [];
+                // 每次获取10条数据到暂存数组中
                 for (let i = this.datum.length + 1; i <= this.datum.length + 10; i++) {
                     let cache = store[i];
-                    console.log('缓存数据');
-                    console.log(cache);
+                    // console.log('缓存数据');
+                    // console.log(cache);
+                    // 每一项不为undefined则保存进去
                     if (cache !== 'undefined') {
                         temp.push(cache);
                     }
                 }
+                // 如果暂存数组有值，触发加载事件，否则完成
                 if (temp.length) {
                     this.datum = this.datum.concat(temp);
                     this.$refs.infiniteLoading.$emit('$InfiniteLoading:loaded');
+                    // 数据110条，获取数据全部完成
                     if (this.datum.length / 10 === 11) {
                         this.$refs.infiniteLoading.$emit('$InfiniteLoading:complete');
                     }
@@ -101,9 +94,6 @@ export default {
                 console.log('遇到错误了:' + err);
             })
         },
-        // loadAgain: function() {
-            
-        // },
         mouse(event) {
             this.show('block', event);
         },
@@ -199,8 +189,6 @@ export default {
                         }
                     }
                 }
-                
-                
             }
         }
     }
