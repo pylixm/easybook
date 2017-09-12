@@ -130,6 +130,7 @@ export default {
     },
     computed: {
         ...mapState({ navTitle: state => state.book.topTitle }),
+        // 获取合并后的作者信息
         author() {
             if (util.isArrayLike(this.book.author)) {
                 if (this.book.author.length >= 1) {
@@ -138,6 +139,7 @@ export default {
                 return this.book.author;
             }
         },
+        // 获取合并后的译者信息
         translator() {
             if (util.isArrayLike(this.book.translator)) {
                 if (this.book.translator.length >= 1) {
@@ -146,6 +148,7 @@ export default {
                 return this.book.translator;
             }
         },
+        // 获取译者人数
         len() {
             if (util.isArrayLike(this.book.translator)) {
                return this.book.translator.length;
@@ -163,8 +166,8 @@ export default {
     destroyed() {
         // 清除state中的标题
         this.CLEAR_TOPTITLE();
-        console.log('清除标题');
-        console.log(this.$store.state.book.topTitle);
+        // console.log('清除标题');
+        // console.log(this.$store.state.book.topTitle);
     }
     
 }
