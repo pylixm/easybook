@@ -3,20 +3,8 @@
         <back :title="navTitle" />
         <spinner :load="loading" />
         <input type="text" v-model="searchKey" @keyup.enter="submit" class="search-input" autocomplete="off" placeholder="请输入搜索内容"/>
-        <div class="result-list" v-if="all.length !== 0">
-            <router-link  v-for="item in all" :key="item.id" class="search-item" :to="{ name:'detail', params: { id: item.id }}">
-                <img :src="item.images.large"/>
-                <div class="content" v-if="item.summary">
-                    <div class="title">{{item.title}}</div>
-                    <div class="summary">{{item.summary}}</div>
-                    <span class="author"><i class="czs-user-l"></i>{{item.author[0]}}</span>
-                    <span class="price" v-if="item.price"><i class="czs-tag-l"></i>{{item.price}}</span>
-                </div>
-                <div v-else class="no-intro">
-                    <div class="title">{{item.title}}</div>
-                    没有具体介绍
-                </div>
-            </router-link>
+        <div class="result-list" v-if="data.length !== 0">
+            <search-item :datum="data" />
         </div>
         <div v-else class="result-list">
             <img class="no-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJsybDikhWDA2497i2Es8HiZrvLQ2CeSG77eIzynw7hBnSYw9HdqgYzQ" alt="查找无此书籍">
@@ -29,6 +17,7 @@
 import back from '@/components/back.vue';
 import spinner from '@/components/spinner.vue';
 import backToTop from '@/components/backToTop.vue';
+import searchItem from '@/components/searchItem.vue';
 import { fetchSearchBook } from '@/api/index';
 import { mapState,mapMutations } from 'vuex';
 import { isEmptyObject } from '@/libs/utils';
@@ -38,7 +27,7 @@ export default {
     data() {
         return {
             searchKey: '',
-            all: [],
+            data: [],
             loading: false
         }
     },
@@ -60,7 +49,8 @@ export default {
     components: {
         back: back,
         spinner: spinner,
-        'back-to-top': backToTop
+        'back-to-top': backToTop,
+        'search-item': searchItem
     },
     methods: {
         ...mapMutations({ CLEAR_TOPTITLE: types.CLEAR_TOPTITLE}),
@@ -69,7 +59,7 @@ export default {
             this.loading = true;
             fetchSearchBook(q)
                 .then(data => { 
-                    this.all = data.books;
+                    this.data = data.books;
                     this.loading = false;
                 });
             this.$store.dispatch(types.SET_TAGVALUE, this.searchKey);    
@@ -116,67 +106,12 @@ export default {
         .no-img {
             display: block;
             margin: 0 auto;
-            
         }
         a {
             cursor: pointer;
         }
     }
-    .search-item {
-        display: block;
-        border: 1px solid $border-line-color;
-        padding-left: 110px;
-        height: 145px;
-        overflow: hidden;
-        max-width: 270px;
-        margin: 10px auto;
-        .no-intro {
-            .title {
-                font-size: 1.2em;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-            }
-        }
-        &:hover {
-            color: #000;
-            box-shadow: 0 0 10px rgba(0,0,0,.5);
-        }
-        img {
-            float: left;
-            margin-left: -110px;
-            max-width: 100px;
-        }
-        .content {
-            width: 250px;
-            height: 95px;
-            line-height: 1.5em;
-            i {
-                vertical-align: middle;
-            }
-            .title {
-                font-size: 1.2em;
-                font-weight: 700;
-                line-height: 1.5;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-            }
-            .summary {
-                font-size: 0.8em;
-                 /*多行文本超过显示省略号*/
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 3;
-                overflow: hidden;
-                margin: 10px 0 13px 0;
-            }
-            .author {
-                margin-right: 15px;
-            }
-        }
-        
-    }
+    
 </style>
 
 
