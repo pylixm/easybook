@@ -30,7 +30,6 @@
 import back from '@/components/back.vue';
 import { mapState, mapMutations } from 'vuex';
 import { SET_TOPTITLE, CLEAR_TOPTITLE } from '@/store/types';
-import { outerHeight, setHeight, debounce } from '@/libs/utils';
 export default {
     data() {
         return {
@@ -41,31 +40,12 @@ export default {
         this.$store.commit(SET_TOPTITLE, '项目由来');
     },
     mounted() {
-        let that = this;
-         debounce(function(){
-            that.setFullHeight('center-box','outer','prev');
-        }, 250)
-
-        window.addEventListener('resize', debounce(function(){
-            that.setFullHeight('center-box','outer','prev');
-        }, 250), false);
     },
     computed: mapState({ navTitle: state => state.book.topTitle }),
     components: {
         back: back
     },
     methods: {
-       setFullHeight(objClass, containerClass) {
-            let length = arguments.length;
-            let height = 0;
-            for (var i = 2; i < length; i++) {
-                let el = document.querySelector("."+arguments[i]);
-                height += outerHeight(el, true);
-            }
-            let obj = document.querySelector('.' + objClass);
-            let setValue = document.querySelector('.'+ containerClass).scrollHeight - height;
-            setHeight(obj, setValue);
-        },
         ...mapMutations([CLEAR_TOPTITLE])
     },
     destroyed() {

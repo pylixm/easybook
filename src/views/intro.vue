@@ -43,35 +43,6 @@
                 3.用v-for动态生成的div，绑定事件，如何获取当前的element => v-on:keyup="handler($index, $event)" 然后获取 event.target。
             </p>
             <p>
-                4.设置元素占满剩余高度js方法
-                <pre>
-                    <code>
-                        // css实现方法有:
-                        // 1：上面div高度固定，下面div高度填满剩余空间
-                        // 思路：下面元素position:absolute;绝对定位，同时设置top和bottom属性，强制定义盒模型的区域。top的值是上面div的高度。
-                        // 2: 上面div高度固定或不固定，下面div高度填满剩余空间
-                        // 利用float来实现，上面div进行浮动，脱离文档流，不影响布局；下面div设定高度为100%。
-                        //js实现就是通过函数设置高度为剩余高度
-                        setFullHeight(objClass, containerClass) {
-                            let length = arguments.length;
-                            let height = 0;
-                            for (var i = 2; i < length; i++) {
-                                let el = document.querySelector("."+arguments[i]);
-                                height += outerHeight(el, true);
-                            }
-                            let obj = document.querySelector('.' + objClass);
-                            console.log('内容高度为:');
-                            console.log( window.getComputedStyle(obj,null).getPropertyValue("height"));
-                            console.log('包裹元素高度为:');
-                            console.log(document.querySelector('.outer').scrollHeight);
-                            let setValue = document.querySelector('.'+ containerClass).scrollHeight - height;
-                            setHeight(obj, setValue);
-                        }
-                        注意：outerHeight()是自己定义的获取元素高度的函数
-                    </code>
-                </pre>
-            </p>
-            <p>
                 5.用vue的keep-alive组件包裹动态组件时缓存组件实例。include(包含)和exclude(排除)属性有条件的缓存
                 组件，最先在整个app的router-view包含一个keep-alive组件，not-found页面的计时器被缓存，再次进入页面，
                 数值不会改变，则exclude(排除)not-found页面。然后在主页面切换的router-view外包裹keep-alive组件，只缓存
@@ -97,7 +68,6 @@
 import back from '@/components/back.vue';
 import { mapState, mapMutations } from 'vuex';
 import { SET_TOPTITLE, CLEAR_TOPTITLE } from '@/store/types';
-import { outerHeight, setHeight, debounce } from '@/libs/utils';
 export default {
     data() {
         return {
@@ -108,32 +78,13 @@ export default {
         this.$store.commit(SET_TOPTITLE, '项目简介');
     },
     mounted() {
-        let that = this;
-         debounce(function(){
-            that.setFullHeight('center-box','outer','prev');
-        }, 250)
-
-        window.addEventListener('resize', debounce(function(){
-            that.setFullHeight('center-box','outer','prev');
-        }, 250), false);
     },
     computed: mapState({ navTitle: state => state.book.topTitle }),
     components: {
         back: back
     },
     methods: {
-        ...mapMutations([CLEAR_TOPTITLE]),
-        setFullHeight(objClass, containerClass) {
-            let length = arguments.length;
-            let height = 0;
-            for (var i = 2; i < length; i++) {
-                let el = document.querySelector("."+arguments[i]);
-                height += outerHeight(el, true);
-            }
-            let obj = document.querySelector('.' + objClass);
-            let setValue = document.querySelector('.'+ containerClass).scrollHeight - height;
-            setHeight(obj, setValue);
-        }
+        ...mapMutations([CLEAR_TOPTITLE])
     },
     destroyed() {
         // 清除state中的标题
