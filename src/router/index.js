@@ -6,6 +6,7 @@ Vue.use(Router)
 
 const router =  new Router({
   routes: [
+    // 主页面和嵌套路由
     {
       path: '/',
       component: resolve => require(['../views/index.vue'], resolve),
@@ -15,41 +16,43 @@ const router =  new Router({
         { path: 'list', name: 'index', component: resolve => require(['../views/booklist.vue'], resolve)}
       ]
     },
+    // 详情页面
     {
       path: '/book/subject/:id',
       name: 'detail',
       component: resolve => require(['../views/detail.vue'], resolve)
     },
+    // 搜索页面
     {
       path: '/search',
       name: 'search',
       component: resolve => require(['../views/search.vue'], resolve)
     },
+    // 项目介绍
     {
       path: '/intro',
       name: 'intro',
       component: resolve => require(['../views/intro.vue'], resolve)
     },
+    // 项目由来
     {
       path: '/from',
       name: 'from',
       component: resolve => require(['../views/from.vue'], resolve)
     },
-    {
-      path: '/resume',
-      name: 'resume',
-      component: resolve => require(['../views/resume.vue'], resolve)
-    },
+    // 最新演讲
     {
       path: '/news',
       name: 'news',
       component: resolve => require(['../views/news.vue'], resolve)
     },
+    // 404页面
     {
       path: '/404',
       name: 'no',
       component: resolve => require(['../views/notfound.vue'], resolve)
     },
+    // 未匹配路由也显示404页面
     {
       path: '*',
       name: 'notfound',
@@ -59,10 +62,11 @@ const router =  new Router({
 });
 
 export default router;
-
+// 全局路由拦截
 router.beforeEach((to, from, next) => {
   if(to.path === '/' || to.path === '/list' || to.path === '/me') {
     if (store.state.book.tagValue){
+      // 清除搜索栏的值
       store.dispatch(types.CLEAR_TAGVALUE);
       console.log('执行清除任务成功');
     }
