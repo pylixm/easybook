@@ -34,6 +34,7 @@ import { mapState,mapMutations } from 'vuex';
 import { isEmptyObject } from '@/libs/utils';
 import * as types from '@/store/types';
 export default {
+    name: 'search',
     data() {
         return {
             searchKey: '',
@@ -173,15 +174,9 @@ export default {
             .author {
                 margin-right: 15px;
             }
-            .price {
-
-            }
         }
         
     }
-</style>
->
-
 </style>
 
 
