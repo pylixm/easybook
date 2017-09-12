@@ -22,8 +22,8 @@ export default {
         let query = 'python';
         fetchManyBook(query)
             .then((data) => {
-                console.log('请求到的book数据************');
-                console.log(data);
+                // console.log('请求到的book数据************');
+                // console.log(data);
                 this.books = data.books;
             })
     },
