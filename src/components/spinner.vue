@@ -5,7 +5,9 @@
     </div>
 </template>
 <script>
+import { pageProp } from '@/libs/utils';
 export default {
+    // 父组件传递的属性
     props: ['load'],
     data() {
         return {
@@ -13,8 +15,9 @@ export default {
         }
     },
     mounted() {
-        let aWidth = document.body.scrollWidth || document.documentElement.scrollWidth;
-        let aHeight = document.body.scrollHeight || document.documentElement.scrollHeight;
+        // 设置模糊层覆盖整个页面
+        let aWidth = pageProp().width;
+        let aHeight = pageProp().height;
         var mask = document.querySelector('.mask');
         mask.style.width = aWidth + 'px';
         mask.style.height = aHeight + 'px';
