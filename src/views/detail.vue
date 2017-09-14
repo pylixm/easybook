@@ -103,6 +103,7 @@ import * as util from '@/libs/utils';
 import * as type from '@/store/types';
 import { mapState,mapMutations } from 'vuex';
 export default {
+    name: 'detail',
     data() {
         return {
             book: {},
