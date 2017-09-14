@@ -1,38 +1,53 @@
 <template>
-    <div class="list">
-        <router-link class="item" :to="{ name: 'detail', params: { id: book.id}}" v-for="book in books" :key="book.id">
-            <div class="pic">
-                <img :src="book.images.large" :alt="book.origin_title">
-            </div>
-            <div class="title" >{{book.title}}</div>
-            <div class="author">{{book.author[0]}}</div>
-        </router-link> 
+    <div>
+        <h2 style="text-align: center; font-size: 25px;">豆瓣top250</h2>
+        <div class="list">
+            <router-link class="item" :to="{ name: 'detail', params: { id: book.id}}" v-for="book in books" :key="book.id">
+                <div class="pic">
+                    <img :src="book.image" :alt="book.origin_title">
+                </div>
+                <div class="title" >{{book.title}}</div>
+                <div class="author">{{book.author}}</div>
+            </router-link> 
+            <div class="full-line"></div>
+            <infinite-loading spinner="bubbles" :on-infinite="onInfinite" ref="infiniteLoading">
+                <span slot="no-more">没有更多数据了哦</span>
+            </infinite-loading>
+        </div>
     </div>
 </template>
 <script>
-import { fetchManyBook } from '@/api/index';
+import data from '@/data/test.json';
+import InfiniteLoading from 'vue-infinite-loading';
 export default {
     name: 'index',
+    mounted() {
+        // this.books = data.book;
+    },
     data() {
         return {
             books: []
         }
     },
-    mounted() {
-        let query = 'python';
-        fetchManyBook(query)
-            .then((data) => {
-                // console.log('请求到的book数据************');
-                // console.log(data);
-                this.books = data.books;
-            })
-    },
-    computed: {
-        
+    components: {
+        InfiniteLoading
     },
     methods: {
+        onInfinite() {
+           setTimeout(() => {
+                const temp = [];
+                for (let i = this.books.length + 1; i < this.books.length + 20; i++){
+                    if (data.book.length === 0) {
+                        this.$refs.infiniteLoading.$emit('$InfiniteLoading:complete');
+                        break;
+                    }
+                    temp.push(data.book.shift());
+                }
+                this.books = this.books.concat(temp);
+                this.$refs.infiniteLoading.$emit('$InfiniteLoading:loaded');
+           }, 2000)
+        }
     }
-
 }
 </script>
 <style lang="scss" scoped>
@@ -45,6 +60,10 @@ export default {
         margin: 0 auto;
         background:  url(../assets/images/bg.png) 0 0 repeat-y;
         background-size: 700px auto; 
+        margin-bottom: 60px;
+        .full-line {
+                flex: 2 0 100%;
+        }
         .item {
             flex: 1 0 40%;
             display: block;
