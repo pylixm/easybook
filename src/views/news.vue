@@ -35,6 +35,7 @@ import { SET_TOPTITLE, CLEAR_TOPTITLE } from '@/store/types';
 import { fetchYiData } from '@/api/index';
 import InfiniteLoading from 'vue-infinite-loading';
 export default {
+    name: 'news',
     data() {
         return {
             datum: [],

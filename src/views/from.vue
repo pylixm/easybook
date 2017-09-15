@@ -31,6 +31,7 @@ import back from '@/components/back.vue';
 import { mapState, mapMutations } from 'vuex';
 import { SET_TOPTITLE, CLEAR_TOPTITLE } from '@/store/types';
 export default {
+    name: 'from',
     data() {
         return {
             
