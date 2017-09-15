@@ -38,8 +38,6 @@ npm run dev
 4. 详情页
 ![](screenshot/detail.png)
 
-5. 演示
-![](screenshot/abc.gif)
 
 _详情请git clone，然后本地运行_
 
