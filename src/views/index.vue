@@ -72,24 +72,32 @@ export default {
     .wrap {
         height: 100%;
         .footer {
-            height: 50px;
-            line-height: 50px;
+            /* Positioning */
             position: fixed;
             bottom: 0;
             left: 0;
-            width: 100%;
+            /* Box-model */
             display: flex;
+            width: 100%;
+            height: 50px;
+            /* Typography */
+            line-height: 50px;
+            /* Visual */
             border-top: 1px solid $separate-line-color; 
-            background-color: $color1;
+            background-color: $color1;          
             .tab {
-                text-align: center;
+                /* Box-model */
                 flex: 1;
+                /* Typography */
+                text-align: center;
                 font-weight: 700;
                 [class~="czs"] {
+                    /* Box-model */
                     display: inline-block;
-                    color: #000;
                     width: 24px;
                     height: 24px;
+                    /* Visual */
+                    color: #000; 
                 }
             }
         }

@@ -32,15 +32,18 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/style/color';
     .search-item {
+        /* Box-model */
         display: block;
-        border: 1px solid $border-line-color;
-        padding-left: 110px;
         height: 145px;
-        overflow: hidden;
         max-width: 270px;
         margin: 10px auto;
+        padding-left: 110px;
+        /* Visual */
+        border: 1px solid $border-line-color;
+        overflow: hidden;  
         .no-intro {
             .title {
+                /* Typography */
                 font-size: 1.2em;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -48,36 +51,45 @@ export default {
             }
         }
         &:hover {
+            /* Typography */
             color: #000;
+            /* Visual */
             box-shadow: 0 0 10px rgba(0,0,0,.5);
         }
         img {
+            /* Box-model */
             float: left;
             margin-left: -110px;
             max-width: 100px;
         }
         .content {
+             /* Box-model */
             width: 250px;
             height: 95px;
+            /* Typography */
             line-height: 1.5em;
             i {
                 vertical-align: middle;
             }
             .title {
+                /* Typography */
                 font-size: 1.2em;
                 font-weight: 700;
                 line-height: 1.5;
+                /* Misc */
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
             }
             .summary {
+                /* Typography */
                 font-size: 0.8em;
                  /*多行文本超过显示省略号*/
                 display: -webkit-box;
                 -webkit-box-orient: vertical;
                 -webkit-line-clamp: 3;
                 overflow: hidden;
+                /* Box-model */
                 margin: 10px 0 13px 0;
             }
             .author {

@@ -121,17 +121,28 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/style/color';
     section {
+        /* Box-model */
+        display: -webkit-box;    
+        display: -moz-box;        
+        display: -ms-flexbox;    
+        display: -webkit-flex;
         display: flex;
-        width: 70%;
-        margin: 0 auto;
         flex-flow: row wrap;
         justify-content: center;
+        width: 70%;
+        margin: 0 auto;
+        
         overflow: hidden;
         h3 {
             font-size: 25px;
             font-weight: 700;
         }
         ul  {
+            /* Box-model */
+            display: -webkit-box;    
+            display: -moz-box;        
+            display: -ms-flexbox;    
+            display: -webkit-flex;
             display: flex;
             flex-flow: row wrap;
             justify-content: space-around;
@@ -140,47 +151,67 @@ export default {
                 flex: 2 0 100%;
             }
             li {
+                /* Positioning */
                 position: relative;
+                /* Box-model */
+                display: -webkit-box;    
+                display: -moz-box;        
+                display: -ms-flexbox;    
+                display: -webkit-flex;
                 display: flex;
                 flex-flow: column nowrap;
                 align-items: center;
                 margin-bottom: 50px;
+                /* Misc */
                 cursor: pointer;
                 img {
-                    display: block;
+                    /* Positioning */
                     position: relative;
-                    border-radius: 5px;
-                    max-width: 350px;
                     z-index: 1;
+                    /* Box-model */
+                    display: block;
+                    max-width: 350px;
+                    /* Visual */
+                    border-radius: 5px;
                 }
                 .mask {
+                    /* Positioning */
                     position: absolute;
                     top: 0;
                     left: 0;
+                    z-index: 3;
+                    /* Box-model */
+                    display: none;
                     width: 100%;
                     height: 100%;
+                    /* Typography */
                     text-align: center;
-                    opacity: 0.9;
+                    /* Visual */
                     background: -webkit-linear-gradient(top,rgba(0, 0, 0, .4) 0, transparent 40%, transparent 60%, rgba(0, 0, 0, .6));
                     background: linear-gradient(180deg,rgba(0, 0, 0, .4) 0, transparent 40%, transparent 60%, rgba(0, 0, 0, .6));
-                    z-index: 3;
-                    display: none;
+                    /* Misc */
+                    opacity: 0.9;
                     .title {
+                        /* Visual */
                         color: #fff;
                         overflow: hidden;
                         text-overflow: ellipsis;
                         white-space: nowrap;
                     }
                     .num {
+                        /* Positioning */
                         position: absolute;
                         bottom: 10px;
                         right: 5px;
                         .icon {
-                            border-radius: 5px;
+                            /* Box-model */
                             margin-left: 10px;
                             padding: 3px 10px;
-                            background-color: #fff;
+                            /* Typography */
                             line-height: 1.2em;
+                            /* Visual */
+                            border-radius: 5px;
+                            background-color: #fff;
                         }
                         .heart {
                             color: $success-color;

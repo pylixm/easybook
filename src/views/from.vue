@@ -58,20 +58,23 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import '../assets/style/color';
-
     .center-box {
+        /* Box-model */
         box-sizing: border-box;
         padding: 20px;
         width: 70%;
         min-width: 300px;
-        background-color: $color3;
         margin: 0 auto;
         height: auto;
+        /* Visual */
+        background-color: $color3;
         overflow-y: visible;
     }
     p {
+        /* Box-model */
+        margin: 32px 0 0;
+        /* Typography */
         font: 18px/32px "Microsoft Yahei";
         text-indent: 2em;
-        margin: 32px 0 0;
     }
 </style>

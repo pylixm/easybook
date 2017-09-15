@@ -24,12 +24,15 @@ export default {
 </script>
 <style lang="scss" scoped>
     .back {
+        /* Box-model */
         height: 50px;
-        line-height: 50px;
-        background-color: #00A2AE;
-        text-align: left;
         padding-left: 10px;
+        /* Typography */
+        line-height: 50px;
         text-align: center;
+        /* Visual */
+        background-color: #00A2AE;
+        /* Misc */
         cursor: pointer;
         .fl {
             float: left;

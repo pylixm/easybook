@@ -61,12 +61,16 @@ export default {
 <style lang="scss" scoped>
 
     .back-top {
+        /* Positioning */
         position: fixed;
         bottom: 80px;
         right: 30px;
+        /* Box-model */
         width: 29px;
         height: 65px;
+        /* Visual */
         background: transparent url(../assets/images/top.png) 0 0 no-repeat;
+        /* Misc */
         cursor: pointer;
     }
 </style>

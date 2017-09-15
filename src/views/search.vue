@@ -79,31 +79,37 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/style/color';
     .search-input {
+        /* Box-model */
+        display: block;
+        box-sizing: border-box;
+        width: 50%;
+        height: 36px;
+        margin: 10px 0;
+        padding: 3px 10px;
+        /* Typography */
+        font-size: inherit;
+        line-height: 1;
+        /* Visual */
         -webkit-appearance: none;
         appearance: none;
+        outline: none;
+        color: #1f2d3d;
         background-image: none;
         background-color: #fff;
-        display: block;
         border-radius: 18px;
         border: 1px solid #bfcbd9;
-        box-sizing: border-box;
-        color: #1f2d3d;
-        font-size: inherit;
-        height: 36px;
-        line-height: 1;
-        outline: none;
-        padding: 3px 10px;
+        /* Misc */
         transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
-        width: 50%;
-        margin: 10px 0;
         transform: translateX(50%);
         &:focus {
              border-color: #20a0ff;
          }
     }
     .result-list {
+        /* Typography */
         text-align: center;
         .no-img {
+            /* Box-model */
             display: block;
             margin: 0 auto;
         }

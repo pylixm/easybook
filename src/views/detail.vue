@@ -180,24 +180,32 @@ export default {
             width: 100%;
         }
         .cell {
+            /* Box-model */
             padding: 10px;
+            /* Typography */
             font-size: 14px;
             line-height: 1.2;
             text-align: left;
+            /* Visual */
             border-bottom: 1px solid #e2e2e2;
             .tag {
+                /* Positioning */
                 position: relative;
+                /* Box-model */
                 display: inline-block;
                 height: 34px;
-                line-height:34px;
                 padding: 0 23px;
                 margin: 0 5px 8px 10px;
-                border: 1px solid $color5;
-                border-radius: 50px;
+                /* Typography */
+                line-height:34px;
                 font-size: 14px;
                 font-weight: 500;
+                /* Visual */
+                border: 1px solid $color5;
+                border-radius: 50px;
                 background-color: $color5;
                 color: #fff;
+                /* Msic */
                 cursor: pointer;
                 -webkit-transition: all 0.3s ease-in-out;
                 transition: all 0.3s ease-in-out;

@@ -55,28 +55,38 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/style/color';
     .outer {
+        /* Positioning */
         position: relative;
+        /* Box-model */
         width: 100vw;
         height: 100vh;
+        /* Visual */
         background: url(../assets/images/bg.jpg) center center no-repeat;
         background-size: cover;
         .not-found-box {
-            width: 550px;
-            height: 160px;
-            line-height: 160px;
-            text-align: center;
-            color: $main-text-color;
-            font-size: 26px;
-            border: 3px solid $border-line-color;
-            border-radius: 5px;
-            background: transparent;
+            /* Positioning */
             position: absolute;
             top: 50%;
             left: 50%;
+            /* Box-model */
+            width: 550px;
+            height: 160px;
+            /* Typography */
+            font-size: 26px;
+            line-height: 160px;
+            text-align: center;
+            /* Visual */
+            color: $main-text-color;
+            border: 3px solid $border-line-color;
+            border-radius: 5px;
+            background: transparent;
+            /* Misc */
             transform: translate(-265px, -80px);
             span {
-                background-color: $error-color;
+                /* Typography */
                 font-size: 38px;
+                /* Visual */
+                background-color: $error-color;
             }
         }
     }

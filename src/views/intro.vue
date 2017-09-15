@@ -98,12 +98,14 @@ export default {
 @import '../assets/style/color';
     
     .center-box {
+        /* Box-model */
         box-sizing: border-box;
-        padding: 20px;
         width: 70%;
         min-width: 300px;
-        background-color: $color3;
         margin: 0 auto;
+        padding: 20px;
+        /* Visual */
+        background-color: $color3;
         li {
             line-height: 1.5;
         }
@@ -117,37 +119,22 @@ export default {
     div {
         line-height: 1.5;
         img {
+            /* Box-model */
             display: block;
             margin-left: 1em;
+            /* Media */
             @media (max-width: 933px) {
                 display: none;
             }
         }
     }
     p {
+        /* Box-model */
+        margin: 0 0 32px 0;
+        /* Typography */
         font-size: 16px;
         line-height: 1.5;
-        text-indent: 2em;
-        margin: 0 0 32px 0;
-        
+        text-indent: 2em; 
     }
-    body pre {
-        padding: 16px;
-        overflow: auto;
-        font-size: 85%;
-        line-height: 1.45;
-        background-color: #f6f8fa;
-        border-radius: 3px;
-        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-        font-size: 12px;
-        code {
-            margin: 0;
-            padding: 0;
-            line-height: inherit;
-            word-wrap: normal;
-            background-color: transparent;
-        }
-    }
-    
 </style>
 

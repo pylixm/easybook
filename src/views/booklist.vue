@@ -53,22 +53,29 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/style/color';
     .list {
-        display: flex;
+        /* Box-model */
+        display: -webkit-box;    
+        display: -moz-box;        
+        display: -ms-flexbox;    
+        display: -webkit-flex;     
+        display: flex; 
         flex-flow: row wrap;
         justify-content: center;
         max-width: 700px;
-        margin: 0 auto;
+        margin: 0 auto 60px;
+        /* Visual */
         background:  url(../assets/images/bg.png) 0 0 repeat-y;
         background-size: 700px auto; 
-        margin-bottom: 60px;
         .full-line {
-                flex: 2 0 100%;
+            flex: 2 0 100%;
         }
         .item {
+            /* Box-model */
             flex: 1 0 40%;
             display: block;
-            text-align: center;
             margin: 20px;
+            /* Typography */
+            text-align: center;
             &:hover {
                 box-shadow: 0 0 10px rgba(0,0,0,.5);
             }
@@ -80,14 +87,18 @@ export default {
                 }
             }
             .title {
-                color: #000;
+                /* Typography */
                 font-size: 16px;
                 font-weight: 700;
                 line-height: 1.5em;
+                /* Visual */
+                color: #000;
             }
             .author {
-                color: #B0B0B0;
+                /* Typography */
                 font-size: 14px;
+                /* Visual */
+                color: #B0B0B0;
             }
         }
     }

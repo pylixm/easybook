@@ -33,16 +33,22 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/style/color';
     .shadow-box {
+        /* Box-model */
         width: auto;
         margin: 3%;
+        /* Visual */
         border: 1px solid #ccc;
         border-radius: 5px;
         box-shadow: 0 35px 10px -30px #ccc;
     }
     a {
+        /* Box-model */
+        display: -webkit-box;    
+        display: -moz-box;        
+        display: -ms-flexbox;    
+        display: -webkit-flex;
         display: flex;
         justify-content: space-between;
-        
         &:hover {
             background-color: $main-hover-color;
         }
@@ -52,15 +58,20 @@ export default {
         }
     }
     .item {
-        height: 50px;
-        line-height: 50px;
-        width: 100%;
+        /* Box-model */
         float: left;
-        overflow: hidden;
+        width: 100%;
+        height: 50px;
+        /* Typography */
         text-align: left;
+        line-height: 50px;
+    
+        overflow: hidden;
         & > i {
+            /* Box-model */
             margin-left: 45px;
             margin-right: 20px;
+
             vertical-align: middle;
         }
         
