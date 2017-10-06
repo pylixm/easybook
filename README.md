@@ -18,13 +18,13 @@
 
 ``` bash
 # 下载项目
-git clone -b dev https://github.com/xxmaa/easybook.git
+git clone -b master https://github.com/xxmaa/easybook.git
 # 安装依赖
 npm install
 # 本地调试运行
 npm run dev
 ```
-
+    下载后使用chrome的手机模式打开效果更佳
 ## 截图
 ![](screenshot/mobile-index.jpg)
 ![](screenshot/mobile-search.jpg)
