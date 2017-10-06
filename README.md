@@ -18,7 +18,7 @@
 
 ``` bash
 # 下载项目
-git clone https://github.com/xxmaa/easybook.git
+git clone -b dev https://github.com/xxmaa/easybook.git
 # 安装依赖
 npm install
 # 本地调试运行
@@ -26,18 +26,11 @@ npm run dev
 ```
 
 ## 截图
-1. 首页
-![](screenshot/index.png)
-
-2. 搜索页
-![](screenshot/search.png)
-
-3. 关于页
-![](screenshot/me.png)
-
-4. 详情页
-![](screenshot/detail.png)
-
+![](screenshot/mobile-index.jpg)
+![](screenshot/mobile-search.jpg)
+![](screenshot/mobile-me.png)
+![](screenshot/mobile-detail.jpg)
+![](screenshot/mobile-news.jpg)
 
 _详情请git clone，然后本地运行_
 ## 项目结构
