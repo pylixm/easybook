@@ -15,8 +15,12 @@ html, body {
     width: 100%;
     height: 100%;
 }
+html {
+    font-size: 62.5%;
+}
 body {
-    font-family: "Source Han Sans SC",-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+    font-weight: 200;
+    font-family: "PingFang SC","微软雅黑","Microsoft YaHei",Helvetica,"Helvetica Neue",Tahoma,Arial,sans-serif;
 }
 
 .pdl-20 {

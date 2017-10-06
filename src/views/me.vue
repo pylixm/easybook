@@ -69,7 +69,7 @@ export default {
         overflow: hidden;
         & > i {
             /* Box-model */
-            margin-left: 45px;
+            margin-left: 25px;
             margin-right: 20px;
 
             vertical-align: middle;

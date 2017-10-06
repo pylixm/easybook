@@ -90,10 +90,10 @@ export default {
                 flex: 1;
                 /* Typography */
                 text-align: center;
-                font-weight: 700;
+                font-size: 1.5rem;
+                font-weight: 500;
                 [class~="czs"] {
                     /* Box-model */
-                    display: inline-block;
                     width: 24px;
                     height: 24px;
                     /* Visual */

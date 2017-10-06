@@ -17,6 +17,7 @@ export default {
     mounted() {
         // 设置模糊层覆盖整个页面
         let aWidth = pageProp().width;
+        
         let aHeight = pageProp().height;
         var mask = document.querySelector('.mask');
         mask.style.width = aWidth + 'px';
@@ -43,6 +44,7 @@ export default {
             top: 50%;
             left: 50%;
             /* Box-model */
+            box-sizing: border-box;
             width: 100px;
             height: 100px;
             margin: -50px 0 0 -50px;
@@ -61,9 +63,10 @@ export default {
             top: 50%;
             left: 50%;
             /* Box-model */
-            width: 100px;
-            height: 100px;
-            margin: -30px 0 0 -30px;
+            box-sizing: border-box;
+            width: 80px;
+            height: 80px;
+            margin: -40px 0 0 -40px;
             /* Typography */
             line-height: 100px;
             text-align: center;

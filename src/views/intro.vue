@@ -50,13 +50,10 @@
             </p>
             <div class="left2em">
                 6.es6的import导入文件，项目由vue-cli构建，在webpack.base.conf.js中有下图配置
-                <img src="../assets/images/path.png" alt="路径配置" />
+                <img class="setting-pic" src="../assets/images/path.png" alt="路径配置" />
                 <span>有了这个配置方案，就可以如下图这样导入文件</span>
-                <img src="../assets/images/path-use.png" alt="路径使用示例" />
+                <img class="setting-pic" src="../assets/images/path-use.png" alt="路径使用示例" />
             </div>
-            <p>
-                7.本页面resize之后有背景颜色区域高度不变的问题，通过检测window的onresize事件后，重新调用高度函数设置高度解决。
-            </p>
             <div>
                 <h3>效果演示</h3>
                 <router-link :to="{ name: 'index' }">查看demo请戳这里</router-link>
@@ -100,7 +97,7 @@ export default {
     .center-box {
         /* Box-model */
         box-sizing: border-box;
-        width: 70%;
+        width: 100%;
         min-width: 300px;
         margin: 0 auto;
         padding: 20px;
@@ -111,6 +108,7 @@ export default {
         }
         .left2em {
             margin-left: 2em;
+            font-size: 1.4rem;
             span {
                 margin-left: 1em;
             }
@@ -119,20 +117,14 @@ export default {
     div {
         line-height: 1.5;
         img {
-            /* Box-model */
-            display: block;
-            margin-left: 1em;
-            /* Media */
-            @media (max-width: 933px) {
-                display: none;
-            }
+            max-width: 300px;
         }
     }
     p {
         /* Box-model */
         margin: 0 0 32px 0;
         /* Typography */
-        font-size: 16px;
+        font-size: 1.4rem;
         line-height: 1.5;
         text-indent: 2em; 
     }

@@ -35,8 +35,7 @@ export default {
         /* Box-model */
         display: block;
         height: 145px;
-        max-width: 270px;
-        margin: 10px auto;
+        margin: 10px;
         padding-left: 110px;
         /* Visual */
         border: 1px solid $border-line-color;
@@ -64,8 +63,8 @@ export default {
         }
         .content {
              /* Box-model */
-            width: 250px;
-            height: 95px;
+            width: 95%;
+            height: 125px;
             /* Typography */
             line-height: 1.5em;
             i {
@@ -73,9 +72,10 @@ export default {
             }
             .title {
                 /* Typography */
-                font-size: 1.2em;
+                font-size: 1.5rem;
                 font-weight: 700;
                 line-height: 1.5;
+                text-align: center;
                 /* Misc */
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -87,13 +87,14 @@ export default {
                  /*多行文本超过显示省略号*/
                 display: -webkit-box;
                 -webkit-box-orient: vertical;
-                -webkit-line-clamp: 3;
+                -webkit-line-clamp: 4;
                 overflow: hidden;
                 /* Box-model */
-                margin: 10px 0 13px 0;
+                margin: 5px 0 10px 0;
             }
-            .author {
-                margin-right: 15px;
+            .price {
+                position: absolute;
+                margin-left: 15px;
             }
         }
     }

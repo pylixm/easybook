@@ -1,6 +1,6 @@
 <template>
   <div class="back" @click="Back">
-    <div class="fl"><i class="czs-angle-left-l"></i>返回</div>
+    <div class="back-btn"><i class="czs-angle-left-l"></i>返回</div>
     <span class="common-title">{{ title }}</span>
   </div>
 </template>
@@ -24,22 +24,20 @@ export default {
 </script>
 <style lang="scss" scoped>
     .back {
-        /* Box-model */
         height: 50px;
-        padding-left: 10px;
-        /* Typography */
         line-height: 50px;
         text-align: center;
-        /* Visual */
         background-color: #00A2AE;
-        /* Misc */
         cursor: pointer;
-        .fl {
-            float: left;
+        .back-btn {
+            position: absolute;
         }
         .common-title {
+            display: inline-block;
+            text-align: center;
             font-size: 25px;
             // 文本过长显示省略号
+            width: 200px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;

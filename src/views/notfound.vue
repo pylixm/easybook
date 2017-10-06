@@ -69,11 +69,10 @@ export default {
             top: 50%;
             left: 50%;
             /* Box-model */
-            width: 550px;
-            height: 160px;
+            width: 80%;
+            height: auto;
             /* Typography */
             font-size: 26px;
-            line-height: 160px;
             text-align: center;
             /* Visual */
             color: $main-text-color;
@@ -81,7 +80,7 @@ export default {
             border-radius: 5px;
             background: transparent;
             /* Misc */
-            transform: translate(-265px, -80px);
+            transform: translate(-50%, -50%);
             span {
                 /* Typography */
                 font-size: 38px;

@@ -62,7 +62,7 @@ export default {
         /* Box-model */
         box-sizing: border-box;
         padding: 20px;
-        width: 70%;
+        width: 100%;
         min-width: 300px;
         margin: 0 auto;
         height: auto;
@@ -72,9 +72,9 @@ export default {
     }
     p {
         /* Box-model */
-        margin: 32px 0 0;
+        margin: 10px 0 0;
         /* Typography */
-        font: 18px/32px "Microsoft Yahei";
+        font: 1.5rem/1.5 "Microsoft Yahei";
         text-indent: 2em;
     }
 </style>

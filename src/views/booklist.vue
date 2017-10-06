@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2 style="text-align: center; font-size: 25px;">豆瓣top250</h2>
+        <h2>豆瓣top250</h2>
         <div class="list">
             <router-link class="item" :to="{ name: 'detail', params: { id: book.id}}" v-for="book in books" :key="book.id">
                 <div class="pic">
@@ -52,28 +52,29 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import '../assets/style/color';
+    h2 {
+        width: 100%;
+        font-size: 3rem;
+        text-align: center;
+    }
     .list {
-        /* Box-model */
-        display: -webkit-box;    
-        display: -moz-box;        
-        display: -ms-flexbox;    
-        display: -webkit-flex;     
+        /* Box-model */   
         display: flex; 
         flex-flow: row wrap;
         justify-content: center;
-        max-width: 700px;
+        width: 100%;
         margin: 0 auto 60px;
         /* Visual */
         background:  url(../assets/images/bg.png) 0 0 repeat-y;
-        background-size: 700px auto; 
+        background-size: 100% auto; 
         .full-line {
             flex: 2 0 100%;
         }
         .item {
             /* Box-model */
-            flex: 1 0 40%;
+            flex: 1 0 50%;
             display: block;
-            margin: 20px;
+            // margin: 20px;
             /* Typography */
             text-align: center;
             &:hover {
@@ -82,13 +83,13 @@ export default {
             .pic {
                 width: 100%;
                 img {
-                    width: 100%;
-                    height: 408px;
+                    max-width: 100%;
+                    height: 208px;
                 }
             }
             .title {
                 /* Typography */
-                font-size: 16px;
+                font-size: 1.6rem;
                 font-weight: 700;
                 line-height: 1.5em;
                 /* Visual */
@@ -96,7 +97,7 @@ export default {
             }
             .author {
                 /* Typography */
-                font-size: 14px;
+                font-size: 1.4rem;
                 /* Visual */
                 color: #B0B0B0;
             }
